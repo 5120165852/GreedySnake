@@ -30,6 +30,14 @@ void beep(int a, int b)
 	return;
 }
 
+void hidecursor()
+{
+	CONSOLE_CURSOR_INFO cursor_info = { 1, 0 };
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
+
+	return;
+}
+
 int setPos(int posx, int posy)
 {
 	HANDLE hOut;

@@ -20,9 +20,12 @@ void initFood(void)
 
 void genFood(void)
 {
-	/*生成食物位置，数值修改防止食物嵌入墙体. */
-	g_snakeFood.posx = rand() % (g_wall.width - 2) + g_wall.startX + 2;
-	g_snakeFood.posy = rand() % (g_wall.height - 1)+ g_wall.startY + 1;
+	/*生成食物位置，数值修改保证食物不靠墙或嵌入墙体. */
+	g_snakeFood.posx = rand() % (g_wall.width - 4) + g_wall.startX + 2;
+	g_snakeFood.posy = rand() % (g_wall.height - 2)+ g_wall.startY + 1;
+
+	//输出消息到消息框
+	addMsg(MSG_GEN_FOOD);
 
 	//画出食物
 	setPos(g_snakeFood.posx, g_snakeFood.posy);
